@@ -14,15 +14,16 @@ console.log(getCoverageArea());
 function getCubicYardsOfMulchNeeded (getCoverageArea) {
    return getCoverageArea / 324; 
 }
-console.log(getCubicYardsOfMulchNeeded(2000));
-// for 2000 square feet, 6.172839506172839 cubic yards of mulch is needed 
+console.log(getCubicYardsOfMulchNeeded(getCoverageArea()));
+//cubic yards of mulch needed is 6.172839506172839
 
-let cubicYardsOfMulchNeeded = Math.round(6.172839506172839);
-console.log(cubicYardsOfMulchNeeded);
+let cubicYardsOfMulch = getCubicYardsOfMulchNeeded(getCoverageArea());
+let cubicYardsOfMulchRounded = Math.round(cubicYardsOfMulch);
+console.log(cubicYardsOfMulchRounded);
 // cubic yards of mulch needed rounded to nearest whole number is 6
 
 function costOfProject (costPerCubicYard) {
-  return costPerCubicYard * cubicYardsOfMulchNeeded;
+  return costPerCubicYard * cubicYardsOfMulchRounded;
 }
 console.log(`'The cost to refresh the mulch this season is $${costOfProject(18)}.'`);
 // 'The cost to refresh the mulch this season is $108.'
